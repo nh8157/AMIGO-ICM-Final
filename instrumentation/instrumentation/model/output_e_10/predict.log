@@ -1,0 +1,31 @@
+2021-11-30 15:22:26 DEBUG    Running with command-line arguments :
+2021-11-30 15:22:26 DEBUG    - input : data/bach/json/test/bwv334.json
+2021-11-30 15:22:26 DEBUG    - output_dir : /home/ICM/output_e_10
+2021-11-30 15:22:26 DEBUG    - dataset : bach
+2021-11-30 15:22:26 DEBUG    - model_filename : /home/ICM/output_e_10/best_model.hdf5
+2021-11-30 15:22:26 DEBUG    - audio : False
+2021-11-30 15:22:26 DEBUG    - suffix : pred
+2021-11-30 15:22:26 DEBUG    - onset_hint_filename : None
+2021-11-30 15:22:26 DEBUG    - pitch_hint_filename : None
+2021-11-30 15:22:26 DEBUG    - seq_len : 500
+2021-11-30 15:22:26 DEBUG    - max_len : 2000
+2021-11-30 15:22:26 DEBUG    - use_beat_postion : False
+2021-11-30 15:22:26 DEBUG    - use_duration : False
+2021-11-30 15:22:26 DEBUG    - use_frequency : False
+2021-11-30 15:22:26 DEBUG    - use_onset_hint : False
+2021-11-30 15:22:26 DEBUG    - use_pitch_hint : False
+2021-11-30 15:22:26 DEBUG    - use_pitch_embedding : False
+2021-11-30 15:22:26 DEBUG    - use_time_embedding : False
+2021-11-30 15:22:26 DEBUG    - use_beat_embedding : False
+2021-11-30 15:22:26 DEBUG    - use_duration_embedding : False
+2021-11-30 15:22:26 DEBUG    - max_time : 4096
+2021-11-30 15:22:26 DEBUG    - max_beat : 4096
+2021-11-30 15:22:26 DEBUG    - max_duration : 192
+2021-11-30 15:22:26 DEBUG    - autoregressive : False
+2021-11-30 15:22:26 DEBUG    - bidirectional : False
+2021-11-30 15:22:26 DEBUG    - n_layers : 3
+2021-11-30 15:22:26 DEBUG    - n_units : 128
+2021-11-30 15:22:26 DEBUG    - gpu : None
+2021-11-30 15:22:26 DEBUG    - quiet : False
+2021-11-30 15:22:26 INFO     Building model...
+2021-11-30 15:22:30 INFO     Loading weights...

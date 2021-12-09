@@ -1,0 +1,40 @@
+2021-11-30 14:43:35 INFO     Running with command-line arguments :
+2021-11-30 14:43:35 INFO     - input_dir : data/bach/s_500_m_10
+2021-11-30 14:43:35 INFO     - output_dir : ../../output_e_50
+2021-11-30 14:43:35 INFO     - dataset : bach
+2021-11-30 14:43:35 INFO     - augmentation : True
+2021-11-30 14:43:35 INFO     - augmentation_pitch_range : [5, 6]
+2021-11-30 14:43:35 INFO     - seq_len : 500
+2021-11-30 14:43:35 INFO     - max_len : 2000
+2021-11-30 14:43:35 INFO     - use_beat_postion : False
+2021-11-30 14:43:35 INFO     - use_duration : False
+2021-11-30 14:43:35 INFO     - use_frequency : False
+2021-11-30 14:43:35 INFO     - use_onset_hint : False
+2021-11-30 14:43:35 INFO     - use_pitch_hint : False
+2021-11-30 14:43:35 INFO     - use_pitch_embedding : False
+2021-11-30 14:43:35 INFO     - use_time_embedding : False
+2021-11-30 14:43:35 INFO     - use_beat_embedding : False
+2021-11-30 14:43:35 INFO     - use_duration_embedding : False
+2021-11-30 14:43:35 INFO     - resolution : 24
+2021-11-30 14:43:35 INFO     - max_time : 4096
+2021-11-30 14:43:35 INFO     - max_beat : 4096
+2021-11-30 14:43:35 INFO     - max_duration : 192
+2021-11-30 14:43:35 INFO     - autoregressive : False
+2021-11-30 14:43:35 INFO     - bidirectional : False
+2021-11-30 14:43:35 INFO     - n_layers : 3
+2021-11-30 14:43:35 INFO     - n_units : 128
+2021-11-30 14:43:35 INFO     - batch_size : 16
+2021-11-30 14:43:35 INFO     - epoch : 50
+2021-11-30 14:43:35 INFO     - steps_per_epoch : 500
+2021-11-30 14:43:35 INFO     - patience : 20
+2021-11-30 14:43:35 INFO     - gpu : None
+2021-11-30 14:43:35 INFO     - quiet : False
+2021-11-30 14:43:35 INFO     Loading training data...
+2021-11-30 14:43:36 INFO     Loading validation data...
+2021-11-30 14:43:36 INFO     Building model...
+2021-11-30 14:43:38 INFO     Model statistics:
+2021-11-30 14:43:38 INFO     - Total parameters : 331653
+2021-11-30 14:43:38 INFO     - Trainable parameters : 331653
+2021-11-30 14:43:38 INFO     - Nontrainable parameters : 0
+2021-11-30 14:43:38 INFO     Compiling model...
+2021-11-30 14:43:38 INFO     Training model...

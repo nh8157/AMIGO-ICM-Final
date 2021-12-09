@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Instrumentation
+    </title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin-left: -15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="title-wrapper">
+        <h1>
+            Automatic Music Instrumentation
+        </h1>
+    </div>
+    <div id="form-wrapper">
+        <!-- need to link up with the backend -->
+        <form action="/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit">
+        </form>
+    </div>
+    {% if audio %}
+    <div id="audio-wrapper">
+        <audio controls="controls">
+            <source src="{{ path }}" type="audio/wav">
+        </audio>
+    </div>
+    {% endif %}
+</body>
+</html>
+<!-- define js here to set block hidden or not -->
