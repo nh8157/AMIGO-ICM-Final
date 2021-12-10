@@ -1,42 +1,116 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        Instrumentation
+        AMIGO
     </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         ul {
             list-style-type: none;
             margin-left: -15px;
         }
+
+        body {
+            margin-left: 5%;
+            margin-top: 2%;
+            background-color: #caf0f8;
+        }
+
+        #title-wrapper {
+            margin-bottom: 2%;
+        }
     </style>
+    <script>
+        function hide_and_show() {
+            let f1, f2;
+            if (document.getElementById('yes_midi').checked) {
+                f1 = "block";
+                f2 = "none";
+            }
+            else {
+                f1 = "none";
+                f2 = "block";
+            }
+            document.getElementById('self_midi_file').style.display = f1;
+            document.getElementById('sample_midi_file').style.display = f2;
+        }
+    </script>
 </head>
 
 <body>
     <div id="title-wrapper">
         <h1>
-            Automatic Music Instrumentation
+            <b>AMIGO</b> - <b>A</b>utomatic <b>M</b>usic <b>I</b>nstrumentation <b>G</b>enerat<b>O</b>r
         </h1>
-    </div>
-    <div id="form-wrapper">
-        <!-- need to link up with the backend -->
-        <form action="/" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit">
-        </form>
     </div>
     {% if audio %}
     <div id="audio-wrapper">
         <audio controls="controls">
             <source src="{{ path }}" type="audio/wav">
         </audio>
+        <form action="/" method="get">
+            <button>
+                Return
+            </button>
+        </form>
+    </div>
+    {% else %}
+    <div id="form-wrapper">
+        <!-- need to link up with the backend -->
+        <form action="/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div id="midi_or_sample" class="form_field">
+                <label for="id_midi_or_sample">Do you have a midi file?</label><br>
+                <input type="radio" id="yes_midi" name="midi_or_sample" value="Yes" checked="checked"
+                    onclick="hide_and_show()">
+                <label for="yes_midi">Yes</label><br>
+                <input type="radio" id="no_midi" name="midi_or_sample" value="No" onclick="hide_and_show()">
+                <label for="no_midi">No</label><br>
+            </div>
+            <div id="self_midi_file">
+                <br>
+                <div class="form_field">
+                    <label for="id_self_midi_file">Please upload your midi file here: </label>
+                    {{ form.self_midi_file }}
+                </div>
+                <br>
+                <div class="form_field">
+                    <label for="id_self_segmentation">(Optional) Please input your segmentation pattern (example: A4B4):
+                    </label>
+                    {{ form.self_segmentation }}
+                </div>
+                <br>
+            </div>
+            <div id="sample_midi_file" style="display: none;">
+                <label for="id_sample_midi_file">Please choose a sample midi file: </label>
+                {{ form.sample_midi_file }}
+            </div>
+            <div>
+                <label for="id_acco_style">Please choose the accompaniment style(s)</label>
+                {{ form.acco_style }}
+                <label for="id_arra_style">Please choose the arrangement style</label>
+                {{ form.arra_style }}
+            </div>
+            <input type="submit">
+        </form>
     </div>
     {% endif %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
-<!-- define js here to set block hidden or not -->

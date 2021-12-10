@@ -13,14 +13,13 @@ SPOTLIGHT = ['一曲红尘', '向天再借五百年', '夜曲', '我只在乎你
 PREFILTER = None
 # Song inputs
 SONG_SAMPLE = {
-	'Beaux of Oakhill.mid': ['A8A8B8B8\n', 0],
-	'Boggy Brays.mid': ['A8A8B8B8\n', 0],
-	'Castles in the Air.mid': ['A6A6B6B8C6\n', 1], # 'A8A8B8B8\n'
-	'Cuillin Reel.mid': ['A4A4B8B8\n', 1],
-	"Kitty O'Niel's Champion.mid": ['A4A4B4B4A4A4B6B4\n', 1],
-	"Proudlocks's Variation.mid": ['A8A8B8B8\n', 1],
-	'ECNU University Song.mid': ['A8A8B8B8C8D8E4F6A8A8B8B8C8D8E4F6\n', 0],
-	'1_test_haydn_8_1.mid': ['A8A8B8B8A8A8B8B8C8C8D6E4\n', 1]
+	'Beaux of Oakhill.mid': ['A8A8B8B8\n', 0, 32],
+	'Boggy Brays.mid': ['A8A8B8B8\n', 0, 32],
+	'Castles in the Air.mid': ['A8A8B8B8\n', 1, 32],
+	'Cuillin Reel.mid': ['A4A4B8B8\n', 1, 24],
+	"Kitty O'Niel's Champion.mid": ['A4A4B4B4A4A4B4B4\n', 1, 32],
+	"Proudlocks's Variation.mid": ['A8A8B8B8\n', 1, 32],
+	'ECNU University Song.mid': ['A8A8B8B8C8D8E4F6A8A8B8B8C8D8E4F6\n', 0, 116]
 }
 SONG_ROOT = 'accompany/demo lead sheets/'
 
@@ -39,7 +38,7 @@ def generate(midi_path: str, song_name: str, acco_style: list, arra_style: str, 
 	# if the user does not upload midi file, just use the default song samples on the webpage
 	if not uploaded_midi:
 		os.chdir('instrumentation/instrumentation/accompany')
-		melody_matrix, chroma_matrix, chord_table = load_and_preprocess_midi(os.path.join(midi_path, song_name), SONG_SAMPLE[song_name][1])
+		processed_midi, melody_matrix, chroma_matrix, chord_table = load_and_preprocess_midi(os.path.join(midi_path, song_name), SONG_SAMPLE[song_name][1], True)
 		melody_queries, piano_roll, query_phrases, query_seg = segment_phrases(melody_matrix, chroma_matrix, SONG_SAMPLE[song_name][0])
 		acc_pool, texture_filter = load_and_process_reference_data()
 		path, shift = select_phrase(query_phrases, melody_queries, query_seg, acc_pool, texture_filter, PREFILTER, acco_style)
@@ -48,8 +47,8 @@ def generate(midi_path: str, song_name: str, acco_style: list, arra_style: str, 
 		os.chdir('../')
 	# if the user uploads customized midi file, then the user's midi is stored in ./uploads folder
 	else:
-		melody_matrix, chroma_matrix, chord_table = load_and_preprocess_midi(os.path.join(midi_path, song_name))
-		melody_queries, piano_roll, query_phrases, query_seg = segment_phrases(melody_matrix, chroma_matrix, segmentation+'\n', os.path.join(midi_path, song_name))
+		processed_midi, melody_matrix, chroma_matrix, chord_table = load_and_preprocess_midi(os.path.join(midi_path, song_name))
+		melody_queries, piano_roll, query_phrases, query_seg = segment_phrases(melody_matrix, chroma_matrix, segmentation, processed_midi)
 		# change the directory to complete the path-specific procedures
 		os.chdir('instrumentation/instrumentation/accompany')
 		acc_pool, texture_filter = load_and_process_reference_data()
@@ -87,7 +86,6 @@ def generate(midi_path: str, song_name: str, acco_style: list, arra_style: str, 
 	convert_command = ['timidity', JSON_PATH + name, '-Ow', '-o', audio_path + util.name_parser(name, right='.mid') + '.wav']
 	process_conv = subprocess.Popen(convert_command, stdout=subprocess.PIPE)
 	output, error = process_conv.communicate()
-	print(output)
 	if error is None:
 		print("Conversion done")
 	else:
@@ -98,4 +96,3 @@ def generate(midi_path: str, song_name: str, acco_style: list, arra_style: str, 
 
 	os.chdir('../..')
 	return name
-

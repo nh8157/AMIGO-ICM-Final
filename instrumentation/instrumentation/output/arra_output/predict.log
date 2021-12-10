@@ -1,31 +1,31 @@
-2021-12-09 17:04:14 DEBUG    Running with command-line arguments :
-2021-12-09 17:04:14 DEBUG    - input : output/single_json/20211209_170410.json
-2021-12-09 17:04:14 DEBUG    - output_dir : output/arra_output
-2021-12-09 17:04:14 DEBUG    - dataset : bach
-2021-12-09 17:04:14 DEBUG    - model_filename : model/bach.hdf5
-2021-12-09 17:04:14 DEBUG    - audio : False
-2021-12-09 17:04:14 DEBUG    - suffix : pred
-2021-12-09 17:04:14 DEBUG    - onset_hint_filename : None
-2021-12-09 17:04:14 DEBUG    - pitch_hint_filename : None
-2021-12-09 17:04:14 DEBUG    - seq_len : 500
-2021-12-09 17:04:14 DEBUG    - max_len : 2000
-2021-12-09 17:04:14 DEBUG    - use_beat_postion : False
-2021-12-09 17:04:14 DEBUG    - use_duration : False
-2021-12-09 17:04:14 DEBUG    - use_frequency : False
-2021-12-09 17:04:14 DEBUG    - use_onset_hint : False
-2021-12-09 17:04:14 DEBUG    - use_pitch_hint : False
-2021-12-09 17:04:14 DEBUG    - use_pitch_embedding : False
-2021-12-09 17:04:14 DEBUG    - use_time_embedding : False
-2021-12-09 17:04:14 DEBUG    - use_beat_embedding : False
-2021-12-09 17:04:14 DEBUG    - use_duration_embedding : False
-2021-12-09 17:04:14 DEBUG    - max_time : 4096
-2021-12-09 17:04:14 DEBUG    - max_beat : 4096
-2021-12-09 17:04:14 DEBUG    - max_duration : 192
-2021-12-09 17:04:14 DEBUG    - autoregressive : False
-2021-12-09 17:04:14 DEBUG    - bidirectional : False
-2021-12-09 17:04:14 DEBUG    - n_layers : 3
-2021-12-09 17:04:14 DEBUG    - n_units : 128
-2021-12-09 17:04:14 DEBUG    - gpu : None
-2021-12-09 17:04:14 DEBUG    - quiet : True
-2021-12-09 17:04:14 INFO     Building model...
-2021-12-09 17:04:17 INFO     Loading weights...
+2021-12-10 11:36:05 DEBUG    Running with command-line arguments :
+2021-12-10 11:36:05 DEBUG    - input : output/single_json/20211210_113601.json
+2021-12-10 11:36:05 DEBUG    - output_dir : output/arra_output
+2021-12-10 11:36:05 DEBUG    - dataset : lmd
+2021-12-10 11:36:05 DEBUG    - model_filename : model/lmd.hdf5
+2021-12-10 11:36:05 DEBUG    - audio : False
+2021-12-10 11:36:05 DEBUG    - suffix : pred
+2021-12-10 11:36:05 DEBUG    - onset_hint_filename : None
+2021-12-10 11:36:05 DEBUG    - pitch_hint_filename : None
+2021-12-10 11:36:05 DEBUG    - seq_len : 500
+2021-12-10 11:36:05 DEBUG    - max_len : 2000
+2021-12-10 11:36:05 DEBUG    - use_beat_postion : False
+2021-12-10 11:36:05 DEBUG    - use_duration : False
+2021-12-10 11:36:05 DEBUG    - use_frequency : False
+2021-12-10 11:36:05 DEBUG    - use_onset_hint : False
+2021-12-10 11:36:05 DEBUG    - use_pitch_hint : False
+2021-12-10 11:36:05 DEBUG    - use_pitch_embedding : False
+2021-12-10 11:36:05 DEBUG    - use_time_embedding : False
+2021-12-10 11:36:05 DEBUG    - use_beat_embedding : False
+2021-12-10 11:36:05 DEBUG    - use_duration_embedding : False
+2021-12-10 11:36:05 DEBUG    - max_time : 4096
+2021-12-10 11:36:05 DEBUG    - max_beat : 4096
+2021-12-10 11:36:05 DEBUG    - max_duration : 192
+2021-12-10 11:36:05 DEBUG    - autoregressive : False
+2021-12-10 11:36:05 DEBUG    - bidirectional : False
+2021-12-10 11:36:05 DEBUG    - n_layers : 3
+2021-12-10 11:36:05 DEBUG    - n_units : 128
+2021-12-10 11:36:05 DEBUG    - gpu : None
+2021-12-10 11:36:05 DEBUG    - quiet : True
+2021-12-10 11:36:05 INFO     Building model...
+2021-12-10 11:36:08 INFO     Loading weights...
