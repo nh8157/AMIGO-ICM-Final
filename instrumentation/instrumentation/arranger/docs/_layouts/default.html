@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% seo %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="title">
+          <h1><a class="nohover" href="{{ site.github.url }}">Arranger</a></h1>
+        </div>
+
+        <div class="info">
+          <p>
+            <a class="hidden" href="https://salu133445.github.io/">Hao-Wen Dong</a><sup>1</sup>,
+            <a class="hidden" href="https://chrisdonahue.com/">Chris Donahue</a><sup>2</sup>,
+            <a class="hidden" href="https://cseweb.ucsd.edu/~jmcauley/">Julian McAuley</a><sup>1</sup>,
+            <a class="hidden" href="https://cseweb.ucsd.edu/~tberg/">Taylor Berg-Kirkpatrick</a><sup>1</sup><br>
+            <sup>1 </sup>University of California San Diego<br>
+            <sup>2 </sup>Stanford University
+          </p>
+        </div>
+
+        <input id="menu-checkbox" class="menu-checkbox" type="checkbox">
+        <label for="menu-checkbox" class="menu-toggle"><i class="fas fa-bars fa-fw"></i></label>
+        <label for="menu-checkbox" class="menu-toggle-close"><i class="fas fa-times fa-fw"></i></label>
+
+        <nav class="menu" role="navigation">
+          <div class="subpage-links">
+            {% include icon_link_button.html text="Home" icon="fas fa-home fa-fw" href=site.github.url %}
+            {% include icon_link_button.html text="Abstract" icon="fas fa-align-left fa-fw" href="abstract" %}
+            {% include icon_link_button.html text="Introduction" icon="fas fa-info-circle fa-fw" href="introduction" %}
+            {% include icon_link_button.html text="Demo" icon="fas fa-headphones-alt fa-fw" href="demo" %}
+            {% include icon_link_button.html text="Paper" icon="fas fa-book fa-fw" href="paper" %}
+          </div>
+
+          <div class="external-links">
+            {% include icon_link_button.html text="GitHub" icon="fab fa-github fa-fw" href=site.github.repository_url %}
+            {% include icon_link_button.html text="BergLab" icon="fas fa-users fa-fw" href="https://icebergnlp.github.io/" %}
+            {% include icon_link_button.html text="McAuleyLab" icon="fas fa-users fa-fw" href="https://cseweb.ucsd.edu/~jmcauley/" %}
+          </div>
+        </nav>
+
+        <button class="mode-toggle">
+          <span class="dark-mode"><i class="fas fa-moon fa-fw"></i><span class="mode-text"> Dark mode</span></span>
+          <span class="light-mode"><i class="fas fa-sun fa-fw"></i><span class="mode-text"> Light mode</span></span>
+        </button>
+
+        <hr>
+      </header>
+      <section>
+        {{ content }}
+      </section>
+    </div>
+    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
+    <script>
+      // Get theme from local storage or system preference
+      var theme = localStorage.getItem('theme');
+      if (!theme) {
+        theme = (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      }
+      // Set theme
+      if (theme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      } else {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+      // Listen for a click on the button
+      const btn = document.querySelector(".mode-toggle");
+      btn.addEventListener("click", function() {
+        theme = document.documentElement.getAttribute("data-theme");
+        var targetTheme = (theme === "dark") ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", targetTheme);
+        localStorage.setItem("theme", targetTheme);
+      });
+    </script>
+  </body>
+</html>
